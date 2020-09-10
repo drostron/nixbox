@@ -55,7 +55,7 @@ def gen_template(
 
   puts JSON.pretty_generate(
     variables: {
-      disk_size: '10240',
+      disk_size: '204800',
       memory: '1024',
     },
     builders: [
@@ -123,14 +123,6 @@ def gen_template(
         script: './scripts/install.sh'
       }
     ],
-    'post-processors': [[
-      {
-        type: 'vagrant',
-        keep_input_artifact: false,
-        only: [ 'virtualbox-iso', 'qemu', 'hyperv-iso' ],
-        output: "nixos-#{ver}-{{.Provider}}-#{arch}.box"
-      }
-    ]],
   )
 end
 

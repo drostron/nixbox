@@ -1,6 +1,6 @@
 {
   "variables": {
-    "disk_size": "10240",
+    "disk_size": "204800",
     "memory": "1024"
   },
   "builders": [
@@ -126,19 +126,5 @@
       "type": "shell",
       "script": "./scripts/install.sh"
     }
-  ],
-  "post-processors": [
-    [
-      {
-        "type": "vagrant",
-        "keep_input_artifact": false,
-        "only": [
-          "virtualbox-iso",
-          "qemu",
-          "hyperv-iso"
-        ],
-        "output": "nixos-20.03-{{.Provider}}-i686.box"
-      }
-    ]
   ]
 }
